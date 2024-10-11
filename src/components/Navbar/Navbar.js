@@ -1,5 +1,5 @@
 import { Col, Row } from 'react-bootstrap';
-import logo from "../../imgs/illustration-negative-film-reel-roll-tapes-for-movie-cinema-video-logo-vector.jpg"
+import logo from "../../imgs/logo-Meta.png"
 import Container from 'react-bootstrap/Container';
 
 

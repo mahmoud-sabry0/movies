@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
-import img from "../../imgs/logo-Meta.png"
+
 import { Link } from 'react-router-dom'
 export default function Cardmovie({ mov}) {
   return (
