@@ -6,7 +6,7 @@ export default function PaginationComponent({ getPage, pageCount }) {
   const handlePageClick = (data) => {
     getPage(data.selected + 1);
   };
-  
+
   return (
     <>
       <ReactPaginate

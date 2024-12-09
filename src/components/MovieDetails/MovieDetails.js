@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 export default function MovieDetails() {
   const param = useParams();
   const [movie, setMovie] = useState([]);
-  const getMovieDetails = async (page) => {
+  const getMovieDetails = async () => {
     const res = await axios.get(
       `https://api.themoviedb.org/3/movie/${param.id}?api_key=52ef927bbeb21980cd91386a29403c78&language=ar`
     );
@@ -75,7 +75,7 @@ export default function MovieDetails() {
               عوده للرئسيه
             </button>
           </Link>
-          
+
           <a href={movie.homepage}>
             <button
               style={{ backgroundColor: "#b45b35", border: "none" }}
@@ -84,7 +84,6 @@ export default function MovieDetails() {
               مشاهده الفلم
             </button>
           </a>
-          
         </Col>
       </Row>
     </>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Col } from 'react-bootstrap'
 
 import { Link } from 'react-router-dom'
-export default function Cardmovie({ mov}) {
+export default function Cardmovie({mov}) {
   return (
     <Col sm={6} lg={3} md={4} className='my-1' >
       <Link to={`/movie/${mov.id}`}>
