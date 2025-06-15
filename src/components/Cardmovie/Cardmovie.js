@@ -18,7 +18,7 @@ export default function Cardmovie({ mov }) {
               <p>تاريخ الاصدار:{mov.release_date}</p>
               <p>عدد المقيمين:{mov.vote_count}</p>
               <p>التقييم:{mov.vote_average}</p>
-            </div>
+            </div>end
           </div>
         </div>
       </Link>

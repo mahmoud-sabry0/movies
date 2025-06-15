@@ -1,10 +1,25 @@
 import { Col, Row } from "react-bootstrap";
 import logo from "../../imgs/logo-Meta.png";
 import Container from "react-bootstrap/Container";
+import { useDispatch } from "react-redux";
+import { getAllMovie, getAllMovieSearch } from "../../redux/actione/movieAction";
+import axios from "axios";
 
-function NavScrollExample({ search }) {
+function NavScrollExample() {
   const onSearch = (word) => {
     search(word);
+  };
+
+
+  
+    const dispatch = useDispatch();
+   const search = async (word) => {
+    if (word === "") {
+     dispatch(getAllMovie())
+    } else {
+     dispatch(getAllMovieSearch(word))
+   
+    }
   };
 
   return (
