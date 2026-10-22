@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 export default function MovieDetails() {
   const param = useParams();
   const [movie, setMovie] = useState([]);
+  const [trailer, setTrailer] = useState(null);
   useEffect(() => {
     const getMovieDetails = async () => {
       const res = await axios.get(
@@ -14,8 +15,20 @@ export default function MovieDetails() {
 
       setMovie(res.data);
     };
+    const getTrailer = async () => {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/movie/${param.id}/videos?api_key=52ef927bbeb21980cd91386a29403c78`
+      );
+      const video = res.data.results.find(
+        (v) => v.site === "YouTube" && v.type === "Trailer"
+      );
+      setTrailer(video ? `https://www.youtube.com/watch?v=${video.key}` : null);
+    };
     getMovieDetails();
+    getTrailer();
   }, [param.id]);
+
+  const watchLink = trailer || movie.homepage;
 
   return (
     <>
@@ -75,14 +88,16 @@ export default function MovieDetails() {
             </button>
           </Link>
 
-          <a href={movie.homepage}>
-            <button
-              style={{ backgroundColor: "#b45b35", border: "none" }}
-              className="btn btn-primary"
-            >
-              مشاهده الفلم
-            </button>
-          </a>
+          {watchLink ? (
+            <a href={watchLink} target="_blank" rel="noreferrer">
+              <button
+                style={{ backgroundColor: "#b45b35", border: "none" }}
+                className="btn btn-primary"
+              >
+                {trailer ? "مشاهده الاعلان" : "موقع الفلم"}
+              </button>
+            </a>
+          ) : null}
         </Col>
       </Row>
     </>
