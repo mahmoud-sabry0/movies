@@ -11,7 +11,7 @@ export default function Movieslist() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllMovie());
-  }, []);
+  }, [dispatch]);
   const dataMovie = useSelector((state) => state.movies);
   useEffect(() => {
     setMovies(dataMovie);

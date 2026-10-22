@@ -15,7 +15,7 @@ export default function PaginationComponent() {
   useEffect(() => {
  
     setPageCount(pages);
-  }, []);
+  }, [pages]);
   
 
 

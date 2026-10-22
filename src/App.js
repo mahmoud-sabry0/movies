@@ -1,4 +1,3 @@
-import axios from "axios";
 import "./App.css";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -13,7 +12,7 @@ function App() {
     <div className="font color-body">
       <Navbar />
       <Container>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route path="/" element={<Movieslist />} />
             <Route path="/movie/:id" element={<MovieDetails />} />

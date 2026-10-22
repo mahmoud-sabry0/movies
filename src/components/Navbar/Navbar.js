@@ -3,7 +3,6 @@ import logo from "../../imgs/logo-Meta.png";
 import Container from "react-bootstrap/Container";
 import { useDispatch } from "react-redux";
 import { getAllMovie, getAllMovieSearch } from "../../redux/actione/movieAction";
-import axios from "axios";
 
 function NavScrollExample() {
   const onSearch = (word) => {
@@ -27,7 +26,7 @@ function NavScrollExample() {
       <Container>
         <Row className="pt-2">
           <Col xs="2" lg="1">
-            <a href="/">
+            <a href={`${process.env.PUBLIC_URL}/`}>
               <img className="logo" src={logo} alt="dfc" />
             </a>
           </Col>
